@@ -1,0 +1,328 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+/* Dipendenza Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text: black;
+  --text-h: rgb(20, 20, 20, 0.9);
+  --bg: white;
+  --code-bg: rgb(180, 180, 180, 0.4);
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+  font: 18px/160% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: white;
+    --text-h: rgb(250, 250, 250, 0.9);
+    --bg: #161622;
+    --code-bg: rgb(80, 80, 80, 0.4);
+  }
+}
+
+#root {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 800px;
+  @media (max-width: 1024px) {
+    width: 500px;
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.60px;
+  margin: 50px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 32px 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 110%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+button,
+input {
+  margin: 0px;
+  padding: 0px;
+  font-size: medium;
+  box-sizing: border-box;
+  height: 32px;
+  color: white;
+}
+
+input {
+  background-color: rgb(60, 60, 60, 1);
+  border: 2px solid rgb(120, 120, 120, 1);
+  padding: 8px;
+}
+
+button {
+  background-color: rgb(36, 99, 236);
+  border: 2px solid rgb(120, 180, 240, 0.8);
+  font-size: 16px;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background: rgb(20, 64, 216);
+}
+
+button.eye {
+  background: rgb(60, 60, 60, 1);
+  color: white;
+  border: none;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 4px;
+  top: 8%;
+}
+
+button.eye:hover {
+  background: rgb(60, 60, 60, 1);
+}
+
+svg {
+  padding: 1px;
+  margin: 1px;
+}
+
+.rawGroup {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  margin: 16px;
+}
+
+.raw {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 16px;
+  gap: 16px;
+}
+
+.partofRaw {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.tokenInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tokenInput input {
+  flex: 1;
+  min-width: 0;
+}
+
+.infoCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  margin-right: 16px;
+}
+.infoCenter::-webkit-scrollbar {
+  display: none;
+}
+
+.buttonZone {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.manageButton {
+  background-color: rgb(128, 0, 128);
+  border: 2px solid rgb(196, 0, 196, 0.8);
+}
+
+.manageButton:hover {
+  background-color: rgb(64, 0, 64);
+}
+
+#runDQ,
+#downloadResults {
+  margin-top: 16px;
+  width: 50%
+}
+
+.containerResults{
+  margin-top: 24px;
+  padding: 20px;
+  width: 75%;
+  background-color: rgba(96, 200, 200, 0.4);
+  border: 2px solid rgb(48, 100, 100, 0.6);
+  border-radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .containerResults{
+    background-color: rgba(40, 232, 232, 0.4);
+    border: 2px solid rgba(40, 232, 232, 0.5);
+    border-radius: 16px;
+  }
+}
+
+.titleResults {
+  font-size: 20px;
+}
+
+.infoResults {
+  font-size: 16px;
+  margin: 12px;
+}
+
+/* Dialog */
+[role="dialog"] {
+  background-color: var(--bg);
+  border: 2px solid var(--text);
+}
+[role="dialog"] button {
+  padding: 0px 8px;
+  border-radius: 8px;
+}
+[data-slot="dialog-overlay"] {
+  background-color: rgba(0, 0, 0, 0.7); /* aumenta/diminuisci l'opacità */
+  backdrop-filter: blur(2px); /* effetto vetro smerigliato */
+}
+.scrollText {
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  min-width: 0;
+  max-width: 100%;
+}
+.scrollText::-webkit-scrollbar {
+  display: none;
+}
+.dialogBody {
+  max-height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Select */
+[data-slot="select-trigger"],
+[data-slot="select-content"] {
+  background-color: rgb(60, 60, 60, 1);
+  border: 2px solid rgb(120, 120, 120, 1);
+  border-radius: 4px;
+  width: 100%;
+}
+[data-slot="select-trigger"]:hover,
+[data-slot="select-item"]:hover {
+  background-color: rgb(40, 40, 40, 1);
+  cursor: pointer;
+}
+[data-slot="select-value"] {
+  overflow: auto;
+  white-space: nowrap;
+  min-width: 0;
+  display: block;
+}
+
+/* Toast */
+[data-sonner-toast] {
+  color: white !important;
+  font-size: 16px !important;
+}
+[data-close-button] {
+  background-color: white !important;
+  border: 1px solid black !important;
+  color: black !important;
+}
+[data-close-button]:hover {
+  background-color: rgb(200, 200, 200) !important;
+}
+[data-type="success"] {
+  background-color: rgb(0, 128, 0) !important;
+  border-color: rgb(0, 196, 0) !important;
+}
+[data-type="warning"] {
+  background-color: rgb(128, 128, 13) !important;
+  border-color: rgb(196, 196, 0) !important;
+}
+[data-type="error"] {
+  background-color: rgb(128, 0, 0) !important;
+  border-color: rgb(196, 0, 0) !important;
+}
