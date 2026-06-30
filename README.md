@@ -1,6 +1,6 @@
 Instructions:
 
-git clone https://github.com/tuo-utente/dq-app.git
+git clone https://github.com/DACKYLAM/dq-app.git
 
 cd dq-app
 
